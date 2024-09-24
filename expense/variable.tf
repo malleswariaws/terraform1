@@ -1,3 +1,4 @@
+# ec2 variables
 variable "instance_names" {
     type = list
     default = ["db","backend","frontend"]
@@ -5,7 +6,7 @@ variable "instance_names" {
 
 variable "image_id" {
   type = string #optional
-  default = "ami-041e2ea9402c46c32" #optional
+  default = "ami-09c813fb71547fc4f" #optional
   description = "RHEL-9 AMI ID" #optional
  }
 
@@ -18,13 +19,14 @@ variable "common_tags" {
     default = {
         Project = "Expense"
         Envoronment = "Dev"
-        Terraform = "true"
+        Terraform = "true
         
     }
 }
 
+# sg variables 
 variable "sg_name" {
-    default = "allowing port 22"
+    default = "allow_ssh"
 }
 
 variable "sg_description" {
@@ -42,4 +44,13 @@ variable "protocol" {
 variable "allowed_cidr" {
     type = list
     default = ["0.0.0.0/0"]
+}
+
+#r53 variables
+variable "zone_id" {
+    default = "Z03295433D5PD4U5F9B46"
+}
+
+variable "domain_name" {
+    default = "malleswariaws.online"
 }

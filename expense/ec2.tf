@@ -1,9 +1,9 @@
 
-resource "aws_instance" "db" {
+resource "aws_instance" "Expense" {
     count = length(var.instance_names)
     ami = var.image_id
     vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-    instance_type = var.instance_names[count.index] == "db" ? "t2.small" : "t2.large"
+    instance_type = var.instance_names[count.index] == "db" ? "t3.small" : "t3.micro"
     tags = merge(
         var.common_tags,
         {
@@ -30,7 +30,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port        = 0 # 0 to 0 means, opening all protocal
     to_port          = 0 
     protocol         = "-1" # -1 all protocalls
-    cidr_blocks      =  ["0.0.0.0/0"]
+    cidr_blocks      =  var.allowed_cidr
   }
 
     tags = {
