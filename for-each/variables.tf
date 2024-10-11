@@ -14,3 +14,10 @@ variable "common_tags" {
        Terraform = "true"
     }
 }
+variable "domain_name" {
+    default = "malleswariaws.online"
+}
+
+variable "zone_id" {
+    default = "Z03295433D5PD4U5F9B46"
+}

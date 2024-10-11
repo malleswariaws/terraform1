@@ -1,3 +1,3 @@
-output "aws_instances_info" {
-  value   = aws_instance.Expense
-}
+#output "aws_instances_info" {
+  #value   = aws_instance.Expense
+#}
